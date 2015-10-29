@@ -24,12 +24,12 @@ function gapi_init() {
 		function gapi_myAPI() {
 
 			//checks to make sure it's a 39-character string with no spaces
-			$key = trim(get_option( 'googlapi' ) );
+			$key = trim(get_option( 'googl_api_key' ) );
 
 			if ( strlen( $key ) === 39 ) {
 
 				//and if so, returns the new API key into the original plugin
-				return ( get_option( 'googlapi' ) );
+				return ( get_option( 'googl_api_key' ) );
 			}
 
 			//if it's not 39 characters, it defaults back to the API key that ships with the original plugin.
