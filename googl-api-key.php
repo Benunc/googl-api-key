@@ -45,7 +45,7 @@ function gapi_init() {
 
 			$settings_text = sprintf( _x( 'Settings', 'text for the link on the plugins page', 'googl-api-key' ) );
 
-			$settings_link = '<a href="options-general.php?page=googlapi">' . $settings_text . '</a>';
+			$settings_link = '<a href="options-general.php?page=googl-api-key">' . $settings_text . '</a>';
 
 			array_unshift( $links, $settings_link );
 
@@ -59,7 +59,7 @@ function gapi_init() {
 		//cleans up after ourselves on uninstall (removes the Key added to the options database table)
 		function gapi_on_uninstall() {
 
-			delete_option( 'googlapi' );
+			delete_option( 'googl_api_key' );
 
 		}
 

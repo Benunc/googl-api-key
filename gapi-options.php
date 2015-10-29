@@ -15,21 +15,19 @@ add_action( 'admin_init', 'googlapi_settings_init' );
 
 function googlapi_add_admin_menu() {
 
-	add_options_page( 'Goo.gl API', 'Goo.gl API', 'manage_options', 'googlapi', 'googlapi_options_page' );
+	add_options_page(
+
+		__( 'Goo.gl API Key settings', 'googl-api-key'),
+
+		'Goo.gl API Key',
+
+		'manage_options',
+
+		'googl-api-key',
+
+		'googlapi_options_page' );
 
 }
-
-
-function googlapi_settings_exist() {
-
-	if ( false == get_option( 'googlapi' ) ) {
-
-		add_option( 'googlapi' );
-
-	}
-
-}
-
 
 function googlapi_settings_init() {
 
@@ -39,41 +37,41 @@ function googlapi_settings_init() {
 
 		__( '', 'googl-api-key' ),
 
-		'googlapi__settings_section_callback',
+		'googlapi_settings_section_callback',
 
 		'googlapi_page'
 	);
 
 	add_settings_field(
 
-		'googlapi_api_key',
+		'googl_api_key',
 
 		__( 'Please enter your API Key', 'googl-api-key' ),
 
-		'googlapi__text_field_0_render',
+		'googlapi_key_entry_field_render',
 
 		'googlapi_page',
 
 		'googlapi_page_section'
 	);
 
-	register_setting( 'googlapi_page', 'googlapi' );
+	register_setting( 'googlapi_page', 'googl_api_key' );
 
 }
 
 
-function googlapi__text_field_0_render() {
+function googlapi_key_entry_field_render() {
 
-	$options = get_option( 'googlapi' ); ?>
+	$options = get_option( 'googl_api_key' ); ?>
 
-	<input type='text' class='text' name='googlapi' value='<?php echo $options; ?>'>
+	<input type='text' class='text' name='googl_api_key' value='<?php echo $options; ?>'>
 
 	<?php
 
 }
 
 
-function googlapi__settings_section_callback() {
+function googlapi_settings_section_callback() {
 
 	echo sprintf( __( 'You can get your API key by following <a href="%s">these directions</a>.', 'googl-api-key' ), esc_url( 'https://developers.google.com/url-shortener/v1/getting_started?hl=en' ) );
 
